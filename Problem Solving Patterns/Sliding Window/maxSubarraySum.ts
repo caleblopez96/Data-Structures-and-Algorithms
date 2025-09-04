@@ -68,22 +68,39 @@ function maxSubarraySum2(arr: number[], num: number): number {
 // Example usage:
 console.log(maxSubarraySum2([2, 6, 9, 2, 1, 8, 5, 6, 3], 3)); // 19
 
-/*
-Explanation of sliding window steps:
+// arr -> array to search
+// num -> the size of the subarray(window)
+// tempSum -> holds the current windows sum
+// maxSum -> holds current max sum
 
-Array: [2, 6, 9, 2, 1, 8, 5, 6, 3], window size: 3
+// Step by step:
 
-1. Initial window: [2, 6, 9] → sum = 17 → maxSum = 17
-2. Slide window by 1: [6, 9, 2] → sum = 17 → maxSum = 17
-3. Slide window: [9, 2, 1] → sum = 12 → maxSum = 17
-4. Slide window: [2, 1, 8] → sum = 11 → maxSum = 17
-5. Slide window: [1, 8, 5] → sum = 14 → maxSum = 17
-6. Slide window: [8, 5, 6] → sum = 19 → maxSum = 19 ✅
-7. Slide window: [5, 6, 3] → sum = 14 → maxSum = 19
+// 1. Check for edge case: if num (the size of the window) is larger than the array, a max sub array isn't possible, return 0
 
-Key Points:
-- tempSum = sum of the current window
-- arr[i - num] = first element of previous window (leaving the window)
-- arr[i] = new element entering the window
-- maxSum keeps track of the largest sum seen so far
-*/
+// 2. Get the sum of the first 'num' elements to form the initial window, and create a variable to hold that value
+
+// 3. Create a variable to hold the maxSum and set it equal to tempSum since its the current highest sum (first window)
+
+// 4. Slide the window across the array by looping through it and:
+//  4.1. removing the value of the first element from the sum of tempSum (arr[i - num]) and add the new element to the window (arr[i])
+//  4.2 Update maxSum if the current windows sum is larger
+
+// 5. return maxSum
+
+//@ts-ignore: duplicate function name:
+function maxSubarraySum2(arr: number[], num: number): number {
+    if (num > arr.length) return 0;
+
+    let tempSum: number = 0;
+    for (let i = 0; i < num; i++) {
+        tempSum += arr[i];
+    }
+
+    let maxSum: number = -Infinity;
+
+    for (let i = 0; i < arr.length; i++) {
+        tempSum = tempSum - arr[i - num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum;
+}
