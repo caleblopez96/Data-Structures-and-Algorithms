@@ -40,7 +40,7 @@ console.log(maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
 // [2, 6, 9, 2, 1, 8, [5, 6, 3]] --> [5, 6, 3] --> 14
 
 // REFACTOR: maxSubarraySum using Sliding Window
-
+//@ts-ignore: duplicate function name
 function maxSubarraySum2(arr: number[], num: number): number {
     // if the window size is bigger than the array, return 0
     if (num > arr.length) return 0;
