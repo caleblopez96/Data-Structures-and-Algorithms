@@ -129,27 +129,27 @@ class LinkedList {
         this.head = newNode; // make D the new head
     }
 
-    // Add to the end of the list
+    // add to the end of the list
     addToEnd(data: any): void {
         const newNode = new Node(data);
 
-        // If list is empty, new node becomes head
+        // check if list is empty, new node becomes head
         if (this.head === null) {
             this.head = newNode;
             return;
         }
 
-        // Otherwise, traverse to the last node
+        // otherwise, traverse to the last node
         let current = this.head;
         while (current.next !== null) {
             current = current.next;
         }
 
-        // Attach new node to the last node
+        // attach new node to the last node
         current.next = newNode;
     }
 
-    // Display the list (for debugging)
+    // display the list (helpful for debugging)
     display(): void {
         let current = this.head;
         let result = "";
@@ -163,7 +163,7 @@ class LinkedList {
         console.log(result);
     }
 
-    // Search for a value
+    // search for value
     search(value: any): boolean {
         let current = this.head;
 
@@ -177,34 +177,34 @@ class LinkedList {
         return false;
     }
 
-    // Delete a node by value
+    // delete a node by value
     delete(value: any): boolean {
         // If list is empty
         if (this.head === null) {
             return false;
         }
 
-        // If head needs to be deleted
+        // check if head needs to be deleted
         if (this.head.data === value) {
             this.head = this.head.next;
             return true;
         }
 
-        // Find the node before the one to delete
+        // find the node before the one to delete
         let current = this.head;
         while (current.next !== null) {
             if (current.next.data === value) {
-                // Skip over the node to delete
+                // skip over the node that needs to be deleted
                 current.next = current.next.next;
                 return true;
             }
             current = current.next;
         }
 
-        return false; // Value not found
+        return false; // value not found
     }
 
-    // Get the length of the list
+    // get the length of the list
     length(): number {
         let count = 0;
         let current = this.head;
@@ -217,13 +217,13 @@ class LinkedList {
         return count;
     }
 
-    // Insert at a specific position (0-indexed)
+    // insert at a specific position (0-indexed)
     insertAt(data: any, position: number): boolean {
         if (position < 0) {
             return false;
         }
 
-        // If inserting at beginning
+        // check if inserting at beginning
         if (position === 0) {
             this.addToBeginning(data);
             return true;
@@ -233,18 +233,18 @@ class LinkedList {
         let current = this.head;
         let count = 0;
 
-        // Traverse to position - 1
+        // go to position - 1
         while (current !== null && count < position - 1) {
             current = current.next;
             count++;
         }
 
-        // If position is out of bounds
+        // check if the position is out of bounds
         if (current === null) {
             return false;
         }
 
-        // Insert the new node
+        // insert the new node
         newNode.next = current.next;
         current.next = newNode;
         return true;
@@ -271,30 +271,30 @@ class LinkedList
         Head = newNode; // make new node the head
     }
 
-    // Add to the end of the list
+    // add to the end of the list
     public void AddToEnd(object data)
     {
         Node newNode = new Node(data);
 
-        // If list is empty, new node becomes head
+        // check if list is empty, new node becomes head
         if (Head == null)
         {
             Head = newNode;
             return;
         }
 
-        // Otherwise, traverse to the last node
+        // otherwise, traverse to the last node
         Node current = Head;
         while (current.Next != null)
         {
             current = current.Next;
         }
 
-        // Attach new node to the last node
+        // attach new node to the last node
         current.Next = newNode;
     }
 
-    // Display the list (for debugging)
+    // display the list (helpful for debugging)
     public void Display()
     {
         Node? current = Head;
@@ -310,7 +310,7 @@ class LinkedList
         Console.WriteLine(result);
     }
 
-    // Search for a value
+    // search for a value
     public bool Search(object value)
     {
         Node? current = Head;
@@ -327,39 +327,39 @@ class LinkedList
         return false;
     }
 
-    // Delete a node by value
+    // delete a node by value
     public bool Delete(object value)
     {
-        // If list is empty
+        // check if list is empty
         if (Head == null)
         {
             return false;
         }
 
-        // If head needs to be deleted
+        // check if head needs to be deleted
         if (Head.Data.Equals(value))
         {
             Head = Head.Next;
             return true;
         }
 
-        // Find the node before the one to delete
+        // find the node before the one to delete
         Node current = Head;
         while (current.Next != null)
         {
             if (current.Next.Data.Equals(value))
             {
-                // Skip over the node to delete
+                // skip over the node to delete
                 current.Next = current.Next.Next;
                 return true;
             }
             current = current.Next;
         }
 
-        return false; // Value not found
+        return false; // value not found
     }
 
-    // Get the length of the list
+    // get the length of the list
     public int Length()
     {
         int count = 0;
@@ -374,7 +374,7 @@ class LinkedList
         return count;
     }
 
-    // Insert at a specific position (0-indexed)
+    // insert at a specific position (0-indexed)
     public bool InsertAt(object data, int position)
     {
         if (position < 0)
@@ -382,7 +382,7 @@ class LinkedList
             return false;
         }
 
-        // If inserting at beginning
+        // check if inserting at beginning
         if (position == 0)
         {
             AddToBeginning(data);
@@ -393,20 +393,20 @@ class LinkedList
         Node? current = Head;
         int count = 0;
 
-        // Traverse to position - 1
+        // go to position - 1
         while (current != null && count < position - 1)
         {
             current = current.Next;
             count++;
         }
 
-        // If position is out of bounds
+        // check if position is out of bounds
         if (current == null)
         {
             return false;
         }
 
-        // Insert the new node
+        // insert the new node
         newNode.Next = current.Next;
         current.Next = newNode;
         return true;
