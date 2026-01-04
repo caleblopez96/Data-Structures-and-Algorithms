@@ -414,7 +414,7 @@ class LinkedList
 }
 ```
 
-## Common Pitfalls to Avoid
+## Common Mistakes
 
 1. **Forgetting to check if head is null** when traversing or deleting
 2. **Losing reference to the head** when adding to beginning (update head LAST)
@@ -424,7 +424,7 @@ class LinkedList
 
 ## When to Use a Linked List
 
-### ✅ Good for:
+### Good for:
 
 -   Frequent insertions/deletions at the beginning
 -   Unknown or dynamic size
@@ -432,20 +432,12 @@ class LinkedList
 -   Implementing stacks and queues
 -   When memory fragmentation is acceptable
 
-### ❌ Not ideal for:
+### Not ideal for:
 
 -   Frequent access by index
 -   Searching for specific values (slow without indexing)
 -   When memory overhead of pointers is a concern
 -   When cache locality matters for performance
-
-## Practice Exercises
-
-1. Implement a method to reverse a linked list
-2. Find the middle element of a linked list in one pass
-3. Detect if a linked list has a cycle
-4. Remove duplicates from a sorted linked list
-5. Merge two sorted linked lists into one sorted list
 
 ## Real-World Use Cases
 
